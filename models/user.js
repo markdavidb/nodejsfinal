@@ -21,7 +21,6 @@ const userSchema = new mongoose.Schema({
     },
     birthday: {
         type: Date,
-        required: true
     },
     /**
      * User's marital status.
@@ -29,9 +28,7 @@ const userSchema = new mongoose.Schema({
      */
     marital_status: {
         type: String,
-        required: true,
         enum: ['single', 'married', 'divorced', 'widowed'],
-        default: 'single'
     }
 });
 
