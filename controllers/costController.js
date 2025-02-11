@@ -100,6 +100,12 @@ class CostController {
                 return res.status(400).json({ error: 'Query parameters id, year, and month must be numbers' });
             }
 
+            const user = await User.findOne({ id: userId });
+            if (!user) {
+                console.log('User not found with id:', userId);
+                return res.status(404).json({ error: 'User not found' });
+            }
+
             // Define date range for the specified month
             const startDate = new Date(reportYear, reportMonth - 1, 1); // Start of the month
             const endDate = new Date(reportYear, reportMonth, 1); // Start of the next month
@@ -117,8 +123,8 @@ class CostController {
             // Group costs by category
             categories.forEach(category => {
                 costsGrouped[category] = costs
-                    .filter(cost => cost.category === category) // Filter costs by category
-                    .map(cost => ({ // Map each cost to the required format
+                    .filter(cost => cost.category === category)
+                    .map(cost => ({
                         sum: cost.sum,
                         description: cost.description,
                         day: new Date(cost.createdAt).getDate()
@@ -130,7 +136,7 @@ class CostController {
                 userid: userId,
                 year: reportYear,
                 month: reportMonth,
-                costs: costsGrouped // Costs grouped by category
+                costs: costsGrouped
             };
 
             // Return the report as a JSON response
