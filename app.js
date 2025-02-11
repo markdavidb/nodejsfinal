@@ -1,7 +1,6 @@
 /**
  * @file app.js
  * @description Entry point of the application – sets up Express, connects to the database, defines routes, and starts the server.
- * This code is written in a clear and beginner-friendly style.
  */
 
 const express = require('express');
@@ -23,7 +22,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB Atlas
 // Note: Replace the connection string with your own credentials!
 // -----------------------------------------------------------------
-const MONGODB_URI = process.env.MONGODB_URI || "your_local_mongodb_uri";
+const MONGODB_URI = "process.env.MONGODB_URI;"
 
 mongoose
     .connect(MONGODB_URI)
@@ -42,7 +41,7 @@ app.use('/api/about', aboutRoutes);  // About page
 
 // -----------------------------------------------------------------
 // Start the server (listen on the configured port or 3000 by default)
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server is running at http://localhost:${PORT}`);

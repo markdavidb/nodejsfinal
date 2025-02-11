@@ -1,18 +1,6 @@
 {
-  "name": "nodejs-final",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "private": true,
   "dependencies": {
-    "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "mongoose": "^8.10.0"
-  },
-  "devDependencies": {
-    "better-docs": "^2.7.3"
   }
 }

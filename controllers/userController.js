@@ -21,14 +21,14 @@ class UserController {
 
             // Validate that userId is a number
             if (isNaN(userId)) {
-                console.log("Invalid user ID:", req.params.userId);
+                console.log('Invalid user ID:', req.params.userId);
                 return res.status(400).json({ error: 'Invalid user ID' });
             }
 
             // Search for the user in the database
             const user = await User.findOne({ id: userId });
             if (!user) {
-                console.log("User not found with ID:", userId);
+                console.log('User not found with ID:', userId);
                 return res.status(404).json({ error: 'User not found' });
             }
 
@@ -50,7 +50,7 @@ class UserController {
             return res.json(result);
         } catch (error) {
             // Log and handle server errors
-            console.error("Error in getUserDetails:", error);
+            console.error('Error in getUserDetails:', error);
             return res.status(500).json({ error: 'Server error', message: error.message });
         }
     }
