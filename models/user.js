@@ -23,10 +23,7 @@ const userSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    /**
-     * User's marital status.
-     * Allowed values: single, married, divorced, widowed.
-     */
+
     marital_status: {
         type: String,
         required: true,

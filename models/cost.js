@@ -14,9 +14,7 @@ const costSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    /**
-     * Allowed categories: food, health, housing, sport, education.
-     */
+
     category: {
         type: String,
         required: true,
@@ -26,9 +24,7 @@ const costSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    /**
-     * Cost creation date – defaults to the current date and time if not provided.
-     */
+
     createdAt: {
         type: Date,
         default: Date.now
