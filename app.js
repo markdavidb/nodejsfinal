@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 // Connect to MongoDB Atlas
 // Note: Replace the connection string with your own credentials!
 // -----------------------------------------------------------------
-const MONGODB_URI = "process.env.MONGODB_URI;"
+const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose
     .connect(MONGODB_URI)
